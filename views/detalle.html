@@ -1,0 +1,38 @@
+<br>
+<div class="card">
+    <div class="card-body">
+		<h1 class="card-title text-center">Detalle</h1>
+		<div class="card" style="width: 420px;margin: 0 auto; /* Added */float: none; /* Added */margin-bottom: 10px; /* Added */">
+			<div class="card-body text-center">
+				<div class="d-grid gap-2">
+					<button type="button" class="btn btn-outline-secondary" ng-click="Regresar()">Regresar</button>
+				</div>			  
+			</div>
+			<div class="text-center align-middle">
+
+				<img ng-src="img/{{ productos[ codigo ].imagen }}" class="card-img-top tamaño2">
+			</div>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item text-center">
+					<h2 class="card-title">{{ productos[ codigo ].nombre }}</h2>
+				</li>
+				<li class="list-group-item">
+					<h5>{{ productos[ codigo  ].descripcion }}</h5>					
+				</li>
+				<li class="list-group-item">
+					{{ productos[ codigo ].detalle }}
+				</li>
+				<li class="list-group-item text-center">
+					<h2 class="card-title">{{ productos[ codigo  ].precio | currency }}</h2>
+				</li>
+			</ul>
+			<div class="card-body">
+				<div class="d-grid gap-2">
+					<!-- <button class="btn btn-primary" type="button">Comprar ahora</button> -->
+					<!-- <button type="button" class="btn btn-outline-primary" ng-click="AgregarCarrito(producto)">Agregar al carrito</button> -->
+				</div>			  
+			</div>
+		  </div>
+	</div>
+</div>
+{{ carrito | json }}

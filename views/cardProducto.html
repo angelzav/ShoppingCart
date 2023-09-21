@@ -1,0 +1,17 @@
+<div class="container mt-5">
+    <div class="d-flex flex-wrap">
+        <!-- Card 1 -->
+        <div class="col-md-4 mb-3" ng-repeat="producto in productos">
+            <div class="card">
+                <img ng-src="img/{{ producto.imagen }}" class="card-img-top tamaño" alt="Imagen 3">
+                <div class="card-body">
+                    <h5 class="card-title">{{ producto.nombre }}</h5>
+                    <!--<p class="card-text">{{ producto.descripcion }}</p> -->
+                    <p class="card-text">{{ producto.precio }}</p>
+
+                </div>
+                <button class="btn btn-success">Detalle</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="container">
+	<br>
+	<div class="card">
+		<div class="card-body"><br>			
+			<div class="container">
+				<div class="d-flex flex-wrap">
+					<div class="col-md-4 mb-3" ng-repeat="producto in productos">
+						<div class="card">
+							<div class="text-center align-middle">
+								<img ng-src="img/{{ producto.imagen }}" class="card-img-top tamaño" alt="Imagen 3">
+							</div>
+							<div class="card-body">
+								<h5 class="card-title">{{ producto.nombre }}</h5>
+								<p class="card-text">{{ producto.precio | currency }}</p>
+							</div>
+							
+							<button class="btn btn-outline-success" ng-click="DetalleProducto($index)">Detalle</button>
+							<button type="button" class="btn btn-outline-primary" ng-click="AgregarCarrito(producto)">Agregar al carrito</button>
+						</div>
+						
+					</div>
+				</div>
+			</div>			
+		</div>
+	</div>
+</div>
+{{ carrito | json }}

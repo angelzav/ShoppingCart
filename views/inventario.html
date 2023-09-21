@@ -1,0 +1,121 @@
+<br>
+<div class="card">
+    <div class="card-body">
+        <h1 class="card-title">Inventario</h1>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Buscar</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Agregar</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+            <br>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-subtitle mb-2 text-body-secondary">Filtro:</h5>
+                    <input type="text" ng-model="busqueda" class="form-control" placeholder="Buscar...">
+                </div>
+            </div>
+              
+          </div>
+          <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+            <br>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-10">
+                            <h3 class="card-subtitle mb-2 text-body-secondary">Agregar Producto</h3>
+                        </div>
+                        <div class="col-2 pb-3">
+                            <!-- <button type="submit" class="btn btn-primary" ng-click="AgregarProducto">Guardar</button> -->
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="">Id:</label>
+                                        <input type="text" class="form-control" ng-model="nuevoProducto.id">
+                                    </div>
+                                    
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="">Nombre:</label>
+                                        <input type="text" class="form-control" ng-model="nuevoProducto.nombre">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="descripcion">Descripción:</label>
+                                        <input type="text" class="form-control" ng-model="nuevoProducto.descripcion">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="descripcion">Detalle:</label>
+                                        <textarea class="form-control" rows="5" placeholder="Detalle del Producto" ng-model="nuevoProducto.detalle"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for="precio">Precio:</label>
+                                        <input type="text" class="form-control col-md-2" ng-model="nuevoProducto.precio">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for="exampleInputFile">Imagen:</label>
+                                        <input type="text" class="form-control" id="exampleInputFile" ng-model="nuevoProducto.imagen" value="8.jpg" placeholder="(1 - 10).jpg">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 text-end">
+                                    <button type="submit" class="btn btn-primary mt-4 me-1" ng-click="AgregarProducto(nuevoProducto)">Guardar</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="card">
+            <div class="panel-body">
+                <table class="table table-hover">
+                    <tr>
+                        <th><a class="puntero" ng-click="columna='id'; reverse = !reverse;">#</a></th>
+                        <th><a class="puntero" ng-click="columna='nombre'; reverse = !reverse;">Nombre</a></th>
+                        <th><a >Imagen</a></th>
+                        <th><a >Descripción</a></th>
+                        <th><a >Detalle</a></th>
+                        <th><a class="puntero" ng-click="columna='precio'; reverse = !reverse;">Precio</a></th>
+                        <!-- <th><a class="puntero" ng-click="columna='stock'; reverse = !reverse;">Stock</a></th> -->
+                        <th></th>
+                    </tr>
+                    <tr ng-repeat="producto in productos | filter:busqueda | orderBy:columna:reverse">
+                        <td><a >{{ producto.id }}</a></td>
+                        <td><a >{{ producto.nombre }}</a></td>
+                        <td><img ng-src="img/{{ producto.imagen }}" class="avatar img-circle"></td>
+                        <td><a >{{ producto.descripcion }}</a></td>
+                        <td><a >{{ producto.detalle }}</a></td>
+                        <td><a >{{ producto.precio }}</a></td>
+                        <td class="align-middle"><button type="button" class="btn btn-danger" ng-click="EliminaDeInventario($index)">Eliminar</button></td>
+                        <!-- <td><a >{{ producto.stock }}</a></td> -->
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
